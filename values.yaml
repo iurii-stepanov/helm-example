@@ -89,6 +89,7 @@ variables:
 
 application:
   type: proxy
-
-ingress:
-  enabled: true
+  projects:
+    - nginx
+    - haproxy
+    - envoy

@@ -3,6 +3,5 @@ kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-configmap
 data:
-  first-key: "Hello World"
-  application: {{ .Values.application.name | default "nginx" | quote }}
-  application-type: {{ .Values.application.type | upper | quote }} {{ if eq .Values.application.type "load-balancer" }}strategy: "round-robin {{ end }}
+{{- $path := printf "files/*" }}
+{{ (.Files.Glob $path).AsConfig | indent 2 }}

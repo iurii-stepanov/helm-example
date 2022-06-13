@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-configmap
+data:
+  first-key: "Hello World"
+  application-type: {{ .Values.application.type | upper | quote }} {{ if eq .Values.application.type "load-balancer" }}strategy: "round-robin{{ end }}
+  applications: |-
+    {{- range .Values.application.projects }}
+    - {{ . | title | quote }}
+    {{- end }}
