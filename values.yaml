@@ -82,7 +82,7 @@ tolerations: []
 affinity: {}
 
 minio:
-  enabled: false
+  enabled: true
 
 variables:
   custom: Hello from Pod
