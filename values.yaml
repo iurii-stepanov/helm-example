@@ -93,3 +93,4 @@ application:
     - nginx
     - haproxy
     - envoy
+    - temp
